@@ -38,7 +38,7 @@ function checkToken(req, res, next) {
   if (!token) return res.status(401).json({ msg: "Acesso negado!" });
 
   try {
-    const secret = "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6I";
+    const secret = process.env.SECRET;
 
     jwt.verify(token, secret);
 
@@ -159,7 +159,7 @@ app.post("/auth/login", async(req, res) => {
     }
 
     try {
-        const secret = "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6I"
+        const secret = process.env.SECRET
    
 
         const token = jwt.sign({
@@ -195,8 +195,8 @@ app.post("/auth/login", async(req, res) => {
 
 
 // Credenciais de acesso
-const dbUser = "girlenemachado"
-const dbPassword = "RY7eowYP8d2Zupzm"
+const dbUser = process.env.DB_USER
+const dbPassword = process.env.DB_PASSWORD
 
 mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.bxk3jvf.mongodb.net/authjwt?retryWrites=true&w=majority`)
     .then(() => {
