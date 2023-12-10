@@ -198,7 +198,7 @@ app.post("/auth/login", async(req, res) => {
 const dbUser = "girlenemachado"
 const dbPassword = "RY7eowYP8d2Zupzm"
 
-mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.bxk3jvf.mongodb.net/nome-do-seu-banco-de-dados?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.bxk3jvf.mongodb.net/authjwt?retryWrites=true&w=majority`)
     .then(() => {
         app.listen(3000);
         console.log('Conectou ao banco!');
