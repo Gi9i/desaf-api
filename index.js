@@ -38,7 +38,7 @@ function checkToken(req, res, next) {
   if (!token) return res.status(401).json({ msg: "Acesso negado!" });
 
   try {
-    const secret = eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6I;
+    const secret = "eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6I";
 
     jwt.verify(token, secret);
 
